@@ -1,0 +1,64 @@
+<div id="admin">
+    <h1>Admin</h1>
+    <p>This page can only be accessed by administrators.</p>
+    <div>
+        All users from secure (admin only) api end point:
+        <ul>
+            <li *ngFor="let user of users">
+                {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.id}})
+                - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div id="accordion">
+        <div class="card" title="messages" >
+            <div class="card-header" id="headingOne">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    &#9733; <b>Messages</b>&#9733;
+                </button>
+              </div>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="tab-content">
+                  <table>
+                    <tr class="col-md-12">
+                      <td class="col-md-6"><h2>Messages</h2></td>        
+                    </tr>
+                    <tr class="col-md-12">
+                      <td class="col-md-12">
+                        <table class="table table-bordered  table-hover">
+                            <thead class="thead-light">
+                            <tr>
+                              <th>Name </th>
+                              <th>Email</th>
+                              <th>Text</th>
+                              <th>Is Subscribed</th>
+                            </tr>
+                            </thead>
+                            <tbody *ngFor="let msg of messages;let q = index" >
+                              <tr >
+                                <td class="text-center">{{msg.name}}</td>
+                                <td>{{msg.email}}</td>
+                                <td>{{msg.text}}</td>
+                                <td>{{msg.subscribed}}</td>
+                                <td >
+                                    <button type="button" class="btn btn-outline-success" (click)="OnDelete(msg.id)"><b>Delete</b></button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                      </td>
+         
+                    </tr>
+                  </table>
+                  <div *ngFor="let alert of alerts">
+                    <div class="alert alert-danger" style="width: 758px;" (close)="closeAlert(alert)">{{ alert.message }}</div>
+                  </div>
+                  </div>
+                </div > 
+            </div > 
+        </div >
+    </div >
+</div>

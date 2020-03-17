@@ -1,0 +1,82 @@
+
+<div id="mycart">
+  <div id="accordion">
+    <div class="card" >
+      <div class="card-header" id="headingOne"> 
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <h3 style="color:rgb(110, 61, 26)">Items in your cart</h3>
+        </button>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <table class="table table-bordered table-responsive table-hover">
+            <thead class="thead-light">
+            <tr>
+              <th>Image</th>
+              <th>Name & Description</th>
+              <th>Price</th>
+              <th>AvailableQuantity</th>
+              <th>OrderedNumber</th>
+              <th>Total For Item</th>
+            </tr>
+            </thead>
+            <tr *ngFor="let prod of productAddedTocart;let q = index; let ordItm of orderItem">
+              <td><img src="data:image/jpeg;base64,{{prod.images}}" width="150px;" height="170px;"/></td>
+              <td class="text-center">{{prod.name}}-{{prod.description}}</td>
+              <td>{{prod.unitPrice}}</td>
+              <td>{{prod.quantity}}</td>
+              <td>
+                <div class="form-inline">
+                <button type="button" (click)="onAddQuantity(prod)" class="btn btn-success">+</button> 
+                <input type="text"  [ngModel] ="prod.orderedQuantity" (ngModelChange) ="prod.orderedQuantity=$event" class="form-control form-inline" id="count">
+                <button type="button" (click)="onRemoveQuantity(prod)" class="btn btn-danger">-</button>
+                </div>
+              </td>
+              <td>{{prod.unitPrice * prod.orderedQuantity}}</td>
+            </tr>
+          </table>
+        </div>   
+      </div>
+    </div >
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            &#9733; <b>Delivery Address</b>&#9733;
+        </button>
+      </div>
+      <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <div class="tab-content">
+              <form [formGroup]="deliveryForm">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <h6>Name:</h6>  <input type="text" formControlName="Name" class="form-control"   >
+                    </div>
+                    <div class="col-md-12">
+                      <h6>Delivery Address:</h6> 
+                      <textarea id="textarea" name="textarea" formControlName="DeliveryAddress" class="form-control"  rows="3" cols="15"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                      <h6>Phone:</h6>  <input type="text" formControlName="Phone" class="form-control"   >
+                    </div>
+                    <div class="col-md-12">
+                      <h6>Email:</h6>  <input type="text" formControlName="Email" class="form-control"   >
+                    </div>
+                    <div class="col-md-12">
+                      <h6>Special Message/ Instructions:</h6>  <input type="text" formControlName="Message" class="form-control"   >
+                    </div>
+                    <div class="col-md-12">
+                        <h6>Total Amount To Pay:</h6>  <input type="text" readonly formControlName="Amount" class="form-control"   >
+                    </div>
+                  </div>
+                  <button type="button" [disabled]="!deliveryForm.valid" class="btn btn-outline-success" (click)="ContinueToPay()"><b>ContinueToPay</b></button>
+              </form>
+              <div *ngFor="let alert of alerts">
+                <div class="alert alert-danger" style="width: 758px;" (close)="closeAlert(alert)">{{ alert.message }}</div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    line-height: 1.4;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    display: inline;
+    border: none;
+    background: #555;
+    color: #fff;
+    padding: 7px 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #666;
+}
+/*
+
+.container {
+    padding: 0 1rem;
+
+}
+
+a{
+    color: white;
+}
+
+section {
+    width: 80%;
+    margin:0 auto;
+    padding: 2em;
+}
+*/

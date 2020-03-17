@@ -1,0 +1,59 @@
+<div id="about_menu">
+  <div>
+
+    <div id="pic">
+      <img src="assets/images/photo4.jpg" alt="photo"/>
+      <br>
+      <a href="https://www.linkedin.com/in/mohsen-janmohammadi-86060697">Visit My Linkedin</a>
+    </div>
+
+    <div id="brief">
+      <br/>
+      <div>
+          <h2 >ViaWeb</h2>
+      </div>  
+      <br/>
+      <p >
+        Via Web is written solely with the aim of improving<br/> my web writing skills.
+      </p>
+      <div id="source-files">
+          <h5>Source Files</h5>
+          <a href="#" class="btn btn-primary btn-sm disabled" tabindex="-1" role="button" aria-disabled="true">React</a>
+          <a href="#" class="btn btn-primary btn-sm disabled" tabindex="-1" role="button" aria-disabled="true">Angular</a>
+      </div>
+    </div>
+
+    <div id="last_column">
+      <form [formGroup]="writeToMeForm">
+        <div>
+          <h2 >Write to Me</h2>
+        </div>
+        <div >
+          <div class="form-group">
+            <label for="FormControlName">Name</label>
+            <input formControlName="Name"  type="text" class="form-control"  placeholder="Name">
+          </div>
+        <div class="form-group">
+            <label for="FormControlName">Email address</label>
+            <input formControlName="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+              <label for="FormControlName">Message</label>
+              <textarea formControlName="Message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group form-check">
+          <input formControlName="Subscribed" type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="FormControlName">Subscribe</label>
+        </div>
+        <button type="submit" [disabled]="!writeToMeForm.valid" (click)="OnSend(writeToMeForm)" class="btn btn-primary">Send</button >
+        <div *ngFor="let alert of alerts">
+          <div class="alert alert-danger" style="width: 758px;"  (close)="closeAlert(alert)">{{ alert.message }}</div>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+</div>

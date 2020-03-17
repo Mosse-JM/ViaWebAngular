@@ -1,0 +1,30 @@
+
+<div id="posts">
+  <app-posts [parrentComment]="anotherComment" (refresh)="refreshComment($event)"></app-posts>
+</div>
+
+<div id="contact">
+
+  <div id="postIt">
+    <h1>Leave a Post</h1>
+    <br/>
+    <form [formGroup]="postForm" >
+        <label>
+            Link:
+            <input type="text" formControlName="link" >
+        </label>
+        <label>
+            Post:
+            <textarea formControlName="text"></textarea>
+            <div *ngIf="posted && postForm.controls.text.errors" class="error">
+                <div *ngIf="postForm.controls.text.errors.required">a text is required</div>
+            </div>
+        </label>
+        <button type="submit" [disabled]="!postForm.valid" (click)="OnSend(postForm)" class="btn btn-primary">Post</button >
+        <div *ngFor="let alert of alerts">
+          <div class="alert alert-danger" style="width: 758px;"  (close)="closeAlert(alert)">{{ alert.message }}</div>
+        </div>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,47 @@
+
+<div id="productDisplay">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Logo</a>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  <!------------------------------------------------------------------------>
+  <div class="card">
+    <div class="card-body">
+      
+      <div *ngFor="let prod of allProducts" >
+          <h3 class="modal-header" style="color: cornflowerblue" >{{prod.category}}</h3>
+          <table class="table table-bordered table-responsive" style="display: inline;margin-left: 5px;" >
+            <tr>
+              <td>
+                <img src="data:image/jpeg;base64,{{prod.images}}" width="180px;" height="300px;"/>
+              </td>
+            </tr>
+            <tr>
+              <td>{{prod.name}}</td>
+            </tr>
+            <tr>
+              <td>Price:{{prod.unitPrice}}</td>
+            </tr>
+            <tr>
+              <td>{{prod.description}}</td>
+            </tr>
+            <tr>
+              <td>
+                  <button type="button"   class="btn btn-outline-success" (click)="OnAddCart(prod)"><b>Add to cart</b></button>
+              </td>
+            </tr>
+            <div *ngFor="let alert of alerts">
+              <div class="alert alert-danger"  style="width: 300px;"  (close)="closeAlert(alert)">{{ alert.message }}</div>
+            </div>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

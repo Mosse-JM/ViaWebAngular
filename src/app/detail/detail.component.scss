@@ -1,0 +1,34 @@
+
+#user{
+    width: 80%;
+    padding-top: 50px;
+    ul{
+        list-style-type: none;
+        margin: 0 ; padding: 0;
+        li{
+            background: rgb(149, 202, 233);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+
+            a{
+                font-size: 1.5em;
+                text-decoration: none;
+                font-weight: bold;
+                color: rgb(17, 80, 173);
+            }
+            ul {
+                margin-top: 20px;
+
+                li{
+                    padding: 0;
+
+                    a{
+                        font-size: 1em;
+                        font-weight: 300;
+                    }
+                }
+            } 
+        }
+    }
+}

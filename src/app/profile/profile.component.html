@@ -1,0 +1,19 @@
+
+<div id="profile" >
+    <div class="card">
+      <h1 *ngIf="userFromApi">Hi {{userFromApi.firstName}}!</h1>
+      <p>You're profile</p>
+      <p>This page can be accessed by all authenticated users.</p>
+      <h3>Current user:</h3>
+      <ul>
+          <li *ngIf="userFromApi">
+              {{userFromApi.firstName}} {{userFromApi.lastName}}
+              - <a (click)="deleteUser(userFromApi.id)" class="text-danger">Delete</a>
+          </li>
+      </ul>
+    </div>
+    <div>
+    <app-Todo></app-Todo>
+    </div>
+</div>
+  

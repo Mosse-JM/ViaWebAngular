@@ -1,0 +1,13 @@
+<div id="posts">
+    <h1>Posts</h1>
+  
+    <ul>
+      <li *ngFor="let cmt of comments">
+        <div>{{ cmt.userName }}</div>
+        <a routerLink="">{{ cmt.link }}</a>
+        <p>{{cmt.text}}</p>
+        <button type="button" class="btn btn-outline-success" (click)="OnDelete(cmt.id)" *ngIf="isAdmin"><b>Delete</b></button>
+        <button type="button" class="btn btn-outline-success" (click)="updateComment(cmt)" *ngIf="isAdmin"><b>Reply</b></button>
+      </li>
+    </ul>
+  </div>

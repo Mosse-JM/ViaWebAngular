@@ -1,0 +1,228 @@
+
+<div id="dashboard">
+  <div class="card">
+    <div class="card-body">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" >
+          <div ><b>Add Admin Products</b> </div>
+          <div class="tab-content">
+            <br>
+            <form [formGroup]="productForm" enctype="multipart/form-data" >
+              <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label  style="color: lightseagreen;font-size: medium;" ><b>Seller Name-Id*:</b></label>
+                    </div>
+                    <div class="col-md-6" *ngIf="user">
+                      ({{user.firstName}} {{user.lastName}} {{user.id}})
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlName" style="color: lightseagreen;font-size: medium;" ><b>Billing Address*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" formControlName="Address" placeholder="Enter Billing Address" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlName" style="color: lightseagreen;font-size: medium;" ><b>Product Name*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" formControlName="Name" placeholder="Enter Product Name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                      <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Name'].valid&&productForm.controls['Name'].dirty">
+                        <span *ngIf="productForm.controls.Name.errors.required">Product Name is Required.</span>
+                        <span *ngIf="productForm.controls.Name.errors.minlength">Product name minimum should be length of 3.</span>
+                        <span *ngIf="productForm.controls.Name.errors.maxlength">Product name maximum should be length of 50.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlDescription" style="color: lightseagreen;font-size: medium;" ><b>Description*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" formControlName="Description" placeholder="Description" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                      <span style="font-weight: bold;color: red;"  *ngIf="!productForm.controls['Description'].valid&&productForm.controls['Description'].dirty">
+                        <span *ngIf="productForm.controls.Description.errors.required">Description is Required.</span>
+                        <span *ngIf="productForm.controls.Description.errors.minlength">Description minimum should be length of 3.</span>
+                        <span *ngIf="productForm.controls.Description.errors.maxlength">Description maximum should be length of 50.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlPrice" style="color: lightseagreen;font-size: medium;" ><b>Per Unit Price*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="number" formControlName="Price" placeholder="Price" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                      <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Price'].valid&&productForm.controls['Price'].dirty">
+                        <span *ngIf="productForm.controls.Price.errors.required">Price is Required.</span>
+                        <span *ngIf="productForm.controls.Price.errors.Price">Price is not in correct pattern.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlCategory" style="color: lightseagreen;font-size: medium;" ><b>Category*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <select  class="form-control"  formControlName="Category" id="exampleFormControlSelect2">
+                        <option [ngValue]="undefined">Select Category</option>
+                        <option>Cloths</option>
+                        <option>Electronic</option>
+                        <option>Food Items</option>
+                        <option>Beuty</option>
+                        <option>Shoes</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Category'].valid&&productForm.controls['Category'].dirty&&productForm.controls['Category'].touched">
+                        <span *ngIf="productForm.controls.Category.errors.required">Category is Required.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlQuantity" style="color: lightseagreen;font-size: medium;" ><b>Available Quantity:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="number" formControlName="Quantity" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                      <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Quantity'].valid&&productForm.controls['Quantity'].dirty">
+                        <span *ngIf="productForm.controls.Quantity.errors.required">Quantity is Required.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <!--<img [src]="imageUrl"  style="width:250px;height:200px">-->
+                      <label for="FormControlimage" style="color: lightseagreen;font-size: medium;" ><b>Product Image *:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="file" name="image" accept="image/*" (change)="handleFileInput($event.target.files)" class="form-control-file" aria-label="Default" aria-describedby="inputGroup-sizing-default" multiple>
+                    </div>
+                    <div class="col-md-4">
+                      <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['image'].valid&&productForm.controls['image'].dirty">
+                        <span *ngIf="productForm.controls.image.errors.required">image is Required.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                      <div class="col-md-2">
+                        <label for="FormControlConditions" style="color: lightseagreen;font-size: medium;" ><b>T & C *:</b></label>
+                      </div>
+                      <div class="col-md-6">
+                        <!-- <input type="textarea" formControlName="Conditions" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"> -->
+                        <textarea  formControlName="Conditions"  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <div class="col-md-4">
+                        <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Conditions'].valid&&productForm.controls['Conditions'].dirty">
+                          <span *ngIf="productForm.controls.Conditions.errors.required">Conditions is Required.</span>
+                        </span>
+                      </div>
+                  </div>
+                  <br>
+                </div>
+                <button type="button" style="margin-left: 39%;" [disabled]="productForm.valid" class="btn btn-outline-success" (click)="OnSaveProduct(productForm)"><b>Save</b></button>
+              </form>
+            <div *ngFor="let alert of alerts">
+              <div class="alert alert-danger" style="width: 758px;"  (close)="closeAlert(alert)">{{ alert.message }}</div>
+            </div>
+          </div>
+        </li >
+      </ul>
+    </div>
+  </div>
+
+  <div id="accordion">
+    <div class="card" title="Confirm Your Order" >
+        <div class="card-header" id="headingOne">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                &#9733; <b>Orders</b>&#9733;
+            </button>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <div class="tab-content">
+              <table>
+                <tr class="col-md-12">
+                  <td class="col-md-6"><h2>Item Details</h2></td>
+                  <td class="col-md-6"><h2>Delivery Details</h2></td>          
+                </tr>
+                <tr class="col-md-12">
+                  <td class="col-md-6">
+                    <table class="table table-bordered  table-hover">
+                        <thead class="thead-light">
+                        <tr>
+                          <th>Name & Description</th>
+                          <th>Price</th>
+                          <th>Quantity</th>
+                          <th>Total paid</th>
+                        </tr>
+                        </thead>
+                        <tbody *ngFor="let ord of orders;let q = index" >
+                          <tr *ngFor="let ordIt of ord.orderItems">
+                            <td class="text-center">{{ordIt.productName}}</td>
+                            <td>{{ordIt.perUnitPrice}}</td>
+                            <td>{{ordIt.orderedQuantity }}</td>
+                            <td>total paid</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </td>
+                  <td class="col-md-6">
+                      <table class="table table-bordered  table-hover">
+                        <thead class="thead-light">
+                        <tr>
+                          <th>Name</th>
+                          <th>Delivery Address</th>
+                          <th>Phone</th>
+                          <th>Email</th>
+                          <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tr *ngFor="let ord of orders;let q = index">
+                          <td>{{ord.customerName}}</td>
+                          <td>{{ord.deliveryAddress}}</td>
+                          <td>{{ord.phone}}</td>
+                          <td>{{ord.email}}</td>
+                          <td>{{ord.message}}</td>
+                          <td >
+                              <button type="button" class="btn btn-outline-success" (click)="ConfirmOrder(ord)"><b>ConfirmOrder</b></button>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                </tr>
+              </table>
+              <div *ngFor="let alert of alerts">
+                <div class="alert alert-danger" style="width: 758px;" (close)="closeAlert(alert)">{{ alert.message }}</div>
+              </div>
+              </div>
+            </div > 
+        </div > 
+      </div >
+  </div >
+</div>
+

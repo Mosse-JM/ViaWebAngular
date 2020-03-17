@@ -1,0 +1,38 @@
+#about_menu{
+    width: 100%;
+    background-color: whitesmoke;
+    float: left;
+    margin-top: 50px;
+    #pic{
+        width: 30%;
+        float: left;
+        padding: 35px;
+        padding-top: 7%;
+        img{
+            width: 80%
+        }
+    }
+    #brief{
+        width: 40%;
+        float: left;
+        padding: 25px;
+        #source-files{
+            margin-top: 30px;
+
+            a {
+                margin: 5px;
+            }
+        }
+    }
+
+    #last_column{
+        width: 30%;
+        float: left;
+        padding: 25px;
+        form{
+            padding: 10px;
+        }
+
+    }
+
+}
