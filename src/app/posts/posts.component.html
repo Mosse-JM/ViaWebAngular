@@ -1,13 +1,20 @@
 <div id="posts">
-    <h1>Posts</h1>
+    <h3>Posts</h3>
   
     <ul>
       <li *ngFor="let cmt of comments">
-        <div>{{ cmt.userName }}</div>
-        <a routerLink="">{{ cmt.link }}</a>
-        <p>{{cmt.text}}</p>
-        <button type="button" class="btn btn-outline-success" (click)="OnDelete(cmt.id)" *ngIf="isAdmin"><b>Delete</b></button>
-        <button type="button" class="btn btn-outline-success" (click)="updateComment(cmt)" *ngIf="isAdmin"><b>Reply</b></button>
+          <div>
+            <h4>{{ cmt.link }}</h4>
+            <p>{{cmt.text}}</p>
+            <p *ngIf="cmt.rComment"><b>admin replied: </b>{{cmt.rComment}}</p>
+          </div>
+          <div *ngIf="isAdmin">
+            <label >
+              <input type="text" #inpref [ngModel]="reply">
+              <button type="button" class="btn btn-danger btn-sm" (click)="OnDelete(cmt.id)" ><b>Delete</b></button>
+              <button type="button" class="btn btn-primary btn-sm" [disabled]="!inpref.value" (click)="updateComment(inpref.value, cmt)" ><b>Reply</b></button>
+            </label>
+          </div>
       </li>
     </ul>
   </div>

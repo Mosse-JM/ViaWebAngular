@@ -14,7 +14,7 @@
   <div class="card">
     <div class="card-body">
       
-      <div *ngFor="let prod of allProducts" >
+      <div *ngFor="let prod of allProducts" id="prodDetail">
           <h3 class="modal-header" style="color: cornflowerblue" >{{prod.category}}</h3>
           <table class="table table-bordered table-responsive" style="display: inline;margin-left: 5px;" >
             <tr>
@@ -43,5 +43,6 @@
       </div>
     </div>
   </div>
+  <app-foot></app-foot>
 </div>
 

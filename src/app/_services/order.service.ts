@@ -9,7 +9,7 @@ import { OrderDetail } from '../_models/OrderDetail.Model';
   providedIn: 'root'
 })
 export class OrderService {
-  public apiURL:string="http://localhost:4000/api/OrderDetail";
+  public apiURL:string="http://localhost:4000/OrderDetail";
   constructor(private httpClient:HttpClient, private authService:AuthenticationService) { }
 
   PlaceOrder (orderDetail:OrderDetail)

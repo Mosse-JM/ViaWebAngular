@@ -11,8 +11,8 @@ import { Comment } from '../_models/comment.Model';
 })
 export class CommunicationService {
 
-  public commentApiURL:string="http://localhost:4000/api/Communication/Comments";
-  public messageApiURL:string="http://localhost:4000/api/Communication/Message";
+  public commentApiURL:string="http://localhost:4000/Communication/Comments";
+  public messageApiURL:string="http://localhost:4000/Communication/Message";
   constructor(private httpClient:HttpClient, private authService:AuthenticationService) { }
 
   sendMessage (formData)
@@ -38,7 +38,7 @@ export class CommunicationService {
   }
 
   deleteMessage(id: number){
-    return this.httpClient.delete(`http://localhost:4000/api/Communication/Message/${id}`);
+    return this.httpClient.delete(`http://localhost:4000/Communication/Message/${id}`);
   }
 
   sendComment (formData)
@@ -65,7 +65,7 @@ export class CommunicationService {
   }
 
   deleteComment(id: number){
-    return this.httpClient.delete(`http://localhost:4000/api/Communication/Comments/${id}`);
+    return this.httpClient.delete(`http://localhost:4000/Communication/Comments/${id}`);
   }
 
   updateComment(comment: Comment){

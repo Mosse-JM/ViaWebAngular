@@ -1,25 +1,39 @@
 <div id="admin">
     <h1>Admin</h1>
     <p>This page can only be accessed by administrators.</p>
-    <div>
-        All users from secure (admin only) api end point:
-        <ul>
-            <li *ngFor="let user of users">
-                {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.id}})
-                - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-            </li>
-        </ul>
+    <div id="accordion" >
+        <div class="card" title="Users" >
+            <div class="card-header" id="headingOne">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                &#9733; <b>Users</b>&#9733;
+            </button>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="tab-content">
+                    <div>
+                      <ul>
+                          <li *ngFor="let user of users">
+                              {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.id}})
+                              - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+                          </li>
+                      </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
 
 
     <div id="accordion">
         <div class="card" title="messages" >
-            <div class="card-header" id="headingOne">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <div class="card-header" id="headingTwo">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     &#9733; <b>Messages</b>&#9733;
                 </button>
               </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
                   <div class="tab-content">
                   <table>

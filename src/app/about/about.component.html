@@ -1,32 +1,68 @@
 <div id="about_menu">
   <div>
-
-    <div id="pic">
-      <img src="assets/images/photo4.jpg" alt="photo"/>
-      <br>
-      <a href="https://www.linkedin.com/in/mohsen-janmohammadi-86060697">Visit My Linkedin</a>
-    </div>
-
     <div id="brief">
+      <h4 >
+        <b>Employed Technologies:</b>
+      </h4>
       <br/>
-      <div>
-          <h2 >ViaWeb</h2>
-      </div>  
-      <br/>
-      <p >
-        Via Web is written solely with the aim of improving<br/> my web writing skills.
-      </p>
-      <div id="source-files">
-          <h5>Source Files</h5>
-          <a href="#" class="btn btn-primary btn-sm disabled" tabindex="-1" role="button" aria-disabled="true">React</a>
-          <a href="#" class="btn btn-primary btn-sm disabled" tabindex="-1" role="button" aria-disabled="true">Angular</a>
-      </div>
+          The <a routerLink="/" ><b>Home Page</b></a>  was writen in pure HTML, CSS and JQuery + WebPack & Gulp.
+          Clone the files from my Github ripository here: <a href="https://github.com/Mosse-JM/ViaWeb.git" target="_blank" rel="noopener noreferrer" class="btn btn-link">HTML,CSS,JQuery</a>
+          <br/>
+          The rest was developed first in Angular then by React, beside Bootstrap, Sass + WebPack and you can clone the
+          <a href="https://github.com/Mosse-JM/ViaWebAngular.git" target="_blank" rel="noopener noreferrer" class="btn btn-link">Angular Files</a> &
+          <a href="https://github.com/Mosse-JM/ViaWebReact.git" target="_blank" rel="noopener noreferrer" class="btn btn-link">React Files</a>
+          <br/> Finally the API was developed by ASP.Net and C# + SQL and SQlite, find the files here:
+          <a href="https://github.com/Mosse-JM/ViaWebAPI.git" target="_blank" rel="noopener noreferrer" class="btn btn-link">API Files</a> 
     </div>
-
+    <div id="mid">
+      <div id="pic">
+        <img src="assets/images/photo4.jpg" alt="photo"/>
+      </div>
+      <table class="table table-responsive" >
+        <tbody>
+        <tr>
+        </tr>
+        <tr>
+          <td> <a routerLink="/register" class="btn btn-link"><b>Register/Login </b></a></td>
+          <td>JWT and Role Based Authentication and Autorization</td>
+        </tr>
+        <tr>
+          <td> <a routerLink="/adminDashboard" class="btn btn-link"><b>Dashboard</b></a></td>
+          <td>A dashboard to upload the products and receive the order details</td>
+        </tr>
+        <tr>
+          <td> <a routerLink="/productdisplay" class="btn btn-link"><b>Products</b></a></td>
+          <td> display products</td>
+        </tr>
+        <tr>
+          <td> <a routerLink="/mycart" class="btn btn-link"><b>Cart </b></a></td>
+          <td>the cart to proceed the payment</td>
+        </tr>
+        <tr>
+          <td> <a routerLink="/contact" class="btn btn-link"><b>Comment </b></a></td>
+          <td>Post component: Users can Comment + Admin can Reply and Delete</td>
+        </tr>
+        <tr>
+          <td> <a routerLink="/admin" class="btn btn-link"><b>Admin </b></a></td>
+          <td>AdminDashboard to manage the Users and recieves the Mesages</td>
+        </tr>
+        <tr>
+          <td> <a routerLink="/profile" class="btn btn-link"><b>profile</b></a></td>
+          <td>User's page + TodoLists</td>
+        </tr>
+        
+        </tbody>
+    </table>
+  </div>
     <div id="last_column">
+        <br />
+        <br />
+        <a href="https://www.linkedin.com/in/mohsen-janmohammadi-86060697">Visit My Linkedin</a>
+        <br />
+        <br />
       <form [formGroup]="writeToMeForm">
         <div>
-          <h2 >Write to Me</h2>
+          <h4 >Write to Me</h4>
         </div>
         <div >
           <div class="form-group">
@@ -34,7 +70,7 @@
             <input formControlName="Name"  type="text" class="form-control"  placeholder="Name">
           </div>
         <div class="form-group">
-            <label for="FormControlName">Email address</label>
+            <label for="FormControlName">Email </label>
             <input formControlName="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
@@ -53,7 +89,6 @@
         </div>
       </form>
     </div>
-
-
   </div>
+  <app-foot></app-foot>
 </div>

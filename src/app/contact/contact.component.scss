@@ -1,55 +1,18 @@
 
 
-#posts{
-    width: 40%;
-    float: left;
-}
-
 #contact{
-    width:38%;
+    width: 100%;
+    background-color: whitesmoke;
     float: left;
-    padding: 15px 15px;
     margin-top: 50px;
-    label{
-        display: block;
-
-        input,textarea {
-            display: block;
-            width: 50%;
-            margin-bottom: 20px;
-            padding: 1em;
-        }
-        .error{
-            margin-top: -20px;
-            background: yellow;
-            padding: .5em;
-            display: inline-block;
-            font-size: .9em;
-            margin-bottom: 20px;
-        }
-    }
-    .cta {
-        background: rgb(197, 159, 197);
-        border: none;
-        color: white;
-
-        text-transform: uppercase;
-        border-radius: 4px;
-        padding: 1em;
-        cursor: pointer;
-    }
-
-    .results{
-        strong{
-            display: block;
-        }
-        span{
-            margin-bottom: 10px;
-            display: block;
-        }
+    #posts{
+        width: 70%;
+        float: left;
     }
     #postIt{
-        margin-top: 30px;
+        margin-top: 80px;
+        width: 30%;
+        float: left;
     }
 }
 

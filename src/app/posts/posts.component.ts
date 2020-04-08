@@ -56,10 +56,14 @@ export class PostsComponent implements OnInit, OnChanges {
     //this.comments = this.comments.filter(t => t.id !== id);
   }
 
-  updateComment(comment: Comment){
-    this.communicationService.updateComment(comment)
-        .pipe(first())
-        .subscribe(() => this.loadAllComments());
+  updateComment(inpval, comment: Comment){
+    if (inpval !== null) 
+    {
+      comment.rComment = inpval;
+      this.communicationService.updateComment(comment)
+          .pipe(first())
+          .subscribe(() => this.loadAllComments());
+    }
   }
 
   get isAdmin() {

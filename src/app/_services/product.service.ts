@@ -10,7 +10,7 @@ import { Product } from '../_models/Product.Model';
 })
 export class ProductService {
 
-  public apiURL:string="http://localhost:4000/api/Product";
+  public apiURL:string="http://localhost:4000/Product";
   constructor(private httpClient:HttpClient, private authService:AuthenticationService) { }
 
   saveProductInfo (formData)

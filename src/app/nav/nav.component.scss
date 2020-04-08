@@ -27,7 +27,7 @@
     margin-left:auto; margin-right:auto;
     #menu_main{
         background-color:white;
-        width:10%; height: 50px; 
+        width:20%; height: 50px; 
         float:left;
         #menuToggle{ 
             display: block; 
@@ -72,7 +72,7 @@
         float:left;
         h1{
             margin-bottom:0px; margin-top:0px; margin-left:auto; margin-right:auto; 
-            padding-left:30px; padding-top:7px;
+            padding-left:30px; padding-top:4px;
             a{
                 text-decoration: none;
             }
@@ -85,6 +85,12 @@
         background-color:white; text-align: center; 
         width:35%; height: 50px; 
         float:left;
+        #navbarSupported{
+            background-color:white; 
+            #navbarSupportedContent{
+                background-color:white; 
+            }
+        } 
     }
     #logo{
         background-color:white; text-align: center; 
